@@ -10,6 +10,7 @@ module.exports = {
     social: {
       twitter: `kylemathews`,
     },
+    commentsRepo: `lolychee/lolychee.github.com`,
   },
   plugins: [
     {
