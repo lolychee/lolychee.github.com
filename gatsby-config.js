@@ -10,7 +10,7 @@ module.exports = {
     social: {
       twitter: `kylemathews`
     },
-    commentsRepo: `lolychee/lolychee.github.com`
+    utterancesRepo: `lolychee/lolychee.github.com`
   },
   plugins: [
     {
@@ -54,7 +54,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-56271511-1`
       }
     },
     `gatsby-plugin-feed`,

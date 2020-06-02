@@ -1,6 +1,6 @@
 import React from "react"
 
-export const Comments = ({ repo, issueTerm, theme }) => (
+export const Utterances = ({ repo, issueTerm, theme }) => (
   <section
     ref={elem => {
       if (!elem) {

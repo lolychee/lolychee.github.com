@@ -5,13 +5,13 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
-import { Comments } from "../components/comments"
+import { Utterances } from "../components/utterances"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-  const commentsRepo = data.site.siteMetadata.commentsRepo
+  const utterancesRepo = data.site.siteMetadata.utterancesRepo
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -77,7 +77,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </ul>
       </nav>
 
-      <Comments repo={commentsRepo} />
+      <Utterances repo={utterancesRepo} />
     </Layout>
   )
 }
@@ -89,7 +89,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        commentsRepo
+        utterancesRepo
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
