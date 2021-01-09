@@ -23,9 +23,7 @@
     "yzhang.markdown-all-in-one"
   ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [
-    8000
-  ],
+  "forwardPorts": [8000],
   // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "npm i",
   // "postStartCommand": "npm start",
