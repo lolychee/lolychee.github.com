@@ -1,14 +1,13 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { Utterances } from "../components/utterances"
+import Bio from "../../components/bio"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { Utterances } from "../../components/utterances"
 
-const BlogPostTemplate = ({ data, location }) => {
-  console.log(data)
+const PostLayout = ({ data, location }) => {
   const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next } = data
@@ -47,14 +46,14 @@ const BlogPostTemplate = ({ data, location }) => {
         >
           <li>
             {previous && (
-              <Link to={previous.slug} rel="prev">
+              <Link to={"/posts/" + previous.slug} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.slug} rel="next">
+              <Link to={"/posts/" + next.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}
@@ -67,13 +66,13 @@ const BlogPostTemplate = ({ data, location }) => {
   )
 }
 
-export default BlogPostTemplate
+export default PostLayout
 
-export const pageQuery = graphql`
+export const query = graphql`
   query BlogPostBySlug(
     $id: String!
-    $previousPostId: String
-    $nextPostId: String
+    # $previousPostId: String
+    # $nextPostId: String
   ) {
     site {
       siteMetadata {
@@ -91,17 +90,17 @@ export const pageQuery = graphql`
         description
       }
     }
-    previous: mdx(id: { eq: $previousPostId }) {
-      slug
-      frontmatter {
-        title
-      }
-    }
-    next: mdx(id: { eq: $nextPostId }) {
-      slug
-      frontmatter {
-        title
-      }
-    }
+    # previous: mdx(id: { eq: $previousPostId }) {
+    #   slug
+    #   frontmatter {
+    #     title
+    #   }
+    # }
+    # next: mdx(id: { eq: $nextPostId }) {
+    #   slug
+    #   frontmatter {
+    #     title
+    #   }
+    # }
   }
 `

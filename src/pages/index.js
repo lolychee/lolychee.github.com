@@ -29,7 +29,7 @@ const BlogIndex = ({ data, location }) => {
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+          const title = post.frontmatter.title || post.slug
 
           return (
             <li key={post.slug}>
@@ -40,7 +40,7 @@ const BlogIndex = ({ data, location }) => {
               >
                 <header>
                   <h2>
-                    <Link to={post.slug} itemProp="url">
+                    <Link to={"posts/" + post.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
