@@ -13,24 +13,30 @@ module.exports = {
     utterancesRepo: `lolychee/lolychee.github.io`,
   },
   plugins: [
+    `gatsby-theme-material-ui`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        path: `${__dirname}/src/posts`,
+        name: `posts`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
+        path: `${__dirname}/src/assets`,
         name: `assets`,
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        // defaultLayouts: {
+        //   posts: require.resolve("./src/templates/blog-post.js"),
+        //   // default: require.resolve("./src/components/default-page-layout.js"),
+        // },
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -57,7 +63,7 @@ module.exports = {
         trackingId: `UA-56271511-1`,
       },
     },
-    `gatsby-plugin-feed`,
+    `gatsby-plugin-feed-mdx`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -67,7 +73,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `src/assets/gatsby-icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
