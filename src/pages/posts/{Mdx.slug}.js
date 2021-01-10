@@ -5,7 +5,7 @@ import Bio from "../../components/bio"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { Utterances } from "../../components/utterances"
+import Utterances from "../../components/utterances"
 
 const PostLayout = ({ data, location }) => {
   const post = data.mdx

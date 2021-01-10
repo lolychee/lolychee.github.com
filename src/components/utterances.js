@@ -1,6 +1,6 @@
 import React from "react"
 
-export const Utterances = ({ repo, issueTerm, theme }) => (
+const Utterances = ({ repo, issueTerm, theme }) => (
   <section
     ref={elem => {
       if (!elem) {
@@ -17,3 +17,5 @@ export const Utterances = ({ repo, issueTerm, theme }) => (
     }}
   />
 )
+
+export default Utterances
