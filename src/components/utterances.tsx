@@ -1,6 +1,12 @@
 import React from "react"
 
-const Utterances = ({ repo, issueTerm, theme }) => (
+type Props = {
+  repo: string
+  issueTerm?: string
+  theme?: string
+}
+
+const Utterances: React.FC<Props> = ({ repo, issueTerm, theme }) => (
   <section
     ref={elem => {
       if (!elem) {

@@ -69,7 +69,7 @@ const PostLayout = ({ data, location }) => {
 export default PostLayout
 
 export const query = graphql`
-  query BlogPostBySlug(
+  query BlogPostById(
     $id: String! # $previousPostId: String # $nextPostId: String
   ) {
     site {
