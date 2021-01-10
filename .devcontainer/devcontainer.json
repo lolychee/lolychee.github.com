@@ -20,7 +20,8 @@
     "graphql.vscode-graphql",
     "ms-vscode.vscode-typescript-tslint-plugin",
     "github.vscode-pull-request-github",
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
+    "esbenp.prettier-vscode"
   ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [8000],

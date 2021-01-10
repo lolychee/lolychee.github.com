@@ -13,7 +13,9 @@ module.exports = {
     utterancesRepo: `lolychee/lolychee.github.io`,
   },
   plugins: [
-    `gatsby-theme-material-ui`,
+    {
+      resolve: `gatsby-theme-material-ui`,
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -32,8 +34,8 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         // defaultLayouts: {
-        //   posts: require.resolve("./src/templates/blog-post.js"),
-        //   // default: require.resolve("./src/components/default-page-layout.js"),
+        //   posts: require.resolve(`./src/templates/blog-post.js`),
+        //   // default: require.resolve(`./src/components/default-page-layout.js`),
         // },
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
@@ -55,8 +57,12 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-sharp`,
+    },
+    {
+      resolve: `gatsby-plugin-sharp`,
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -85,8 +91,8 @@ module.exports = {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + "/posts/" + edge.node.slug,
-                  guid: site.siteMetadata.siteUrl + "/posts/" + edge.node.slug,
+                  url: site.siteMetadata.siteUrl + `/posts/` + edge.node.slug,
+                  guid: site.siteMetadata.siteUrl + `/posts/` + edge.node.slug,
                   custom_elements: [{ "content:encoded": edge.node.html }],
                 })
               })
@@ -110,13 +116,13 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "Your Site's RSS Feed",
+            output: `/rss.xml`,
+            title: `Your Site's RSS Feed`,
             // optional configuration to insert feed reference in pages:
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
             // if not provided or `undefined`, all pages will have feed reference inserted
-            match: "^/posts/",
+            match: `^/posts/`,
           },
         ],
       },
@@ -133,7 +139,18 @@ module.exports = {
         icon: `src/assets/gatsby-icon.png`,
       },
     },
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        policy: [{ userAgent: `*`, allow: `/` }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+    },
+    {
+      resolve: `gatsby-plugin-react-helmet`,
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
