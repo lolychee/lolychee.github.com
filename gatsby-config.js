@@ -144,7 +144,7 @@ module.exports = {
       options: {
         env: {
           development: {
-            policy: [{ userAgent: '*', disallow: ['/'] }]
+            policy: [{ userAgent: '*', disallow: '/' }]
           },
           production: {
             policy: [{ userAgent: '*', allow: '/' }]
