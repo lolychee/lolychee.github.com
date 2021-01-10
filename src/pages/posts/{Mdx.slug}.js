@@ -70,10 +70,9 @@ export default PostLayout
 
 export const query = graphql`
   query BlogPostBySlug(
-    $id: String!
-    # $previousPostId: String
-    # $nextPostId: String
-  ) {
+    $id: String! # $previousPostId: String
+  ) # $nextPostId: String
+  {
     site {
       siteMetadata {
         title
