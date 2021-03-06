@@ -9,9 +9,8 @@ services:
       - ..:/workspace:delegated
       - node_modules:/workspace/node_modules
       - cache:/workspeace/.cache
-
-    ports:
-      - 8000
+    # ports:
+    #   - 8000
     environment:
       - LANG=C.UTF-8
     command: ["sleep", "infinity"]
